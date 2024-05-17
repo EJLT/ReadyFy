@@ -1,23 +1,23 @@
 <?php
-include 'config/db_config.php';
+include '../config/db_config.php';
 $sql = "SELECT * FROM user";
 $result = $conn->query($sql);
 ?>
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Lista de Usuarios</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <title>Users List</title>
+        <link rel="stylesheet" type="text/css" href="../css/styles.css">
     </head>
     <body>
-    <h1>Lista de Usuarios</h1>
+    <h1></h1>
     <table>
         <tr>
             <th>ID</th>
-            <th>Nombre</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>Fecha de Membresía</th>
-            <th>Activo</th>
+            <th>MemberShipDate</th>
+            <th>Active</th>
         </tr>
         <?php
         if ($result->num_rows > 0) {
@@ -25,7 +25,7 @@ $result = $conn->query($sql);
                 echo "<tr><td>" . $row["id"]. "</td><td>" . $row["name"]. "</td><td>" . $row["email"]. "</td><td>" . $row["membershipDate"]. "</td><td>" . ($row["active"] ? 'Sí' : 'No'). "</td></tr>";
             }
         } else {
-            echo "<tr><td colspan='5'>No hay usuarios registrados</td></tr>";
+            echo "<tr><td colspan='5'>There aren´t no registered users</td></tr>";
         }
         ?>
     </table>
